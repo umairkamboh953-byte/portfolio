@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>Smart Developer — Premium Websites & Applications</title>
+    <meta name="description" content="Discover and buy premium, ready-made websites, ecommerce stores, and web applications built by Smart Developer. Live previews, transparent pricing, and instant launch." />
+    <meta property="og:title" content="Smart Developer — Premium Websites & Applications" />
+    <meta property="og:description" content="Discover and buy premium, ready-made websites, ecommerce stores, and web applications built by Smart Developer. Live previews, transparent pricing, and instant launch." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Smart Developer — Premium Websites & Applications" />
+    <meta name="twitter:description" content="Discover and buy premium, ready-made websites, ecommerce stores, and web applications built by Smart Developer. Live previews, transparent pricing, and instant launch." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.botpress.cloud" crossorigin>
+    <link rel="preconnect" href="https://files.bpcontent.cloud" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Error shield for cross-origin third-party script notifications -->
+    <script>
+      window.addEventListener('error', function(event) {
+        if (!event || event.message === 'Script error.' || (event.filename && (event.filename.indexOf('bpcontent.cloud') !== -1 || event.filename.indexOf('botpress.cloud') !== -1))) {
+          if (event.preventDefault) event.preventDefault();
+          return true;
+        }
+      });
+      // Defensive Botpress stub so that any early calls to window.botpress.init never throw a TypeError
+      window.botpress = window.botpress || {
+        _queue: [],
+        init: function(cfg) {
+          this._pendingConfig = cfg;
+        },
+        open: function() {
+          this._queue.push(['open']);
+        },
+        close: function() {
+          this._queue.push(['close']);
+        },
+        toggle: function() {
+          this._queue.push(['toggle']);
+        }
+      };
+    </script>
+    <!-- Botpress Webchat core engine (must load so window.botpress is fully initialized) -->
+    <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+    <!-- Botpress Webchat config bundle -->
+    <script src="https://files.bpcontent.cloud/2026/10/14/05/20261014051227-28N8EKMJ.js" defer></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        try {
+          if (window.botpress && window.botpress._pendingConfig && typeof window.botpress.init === 'function') {
+            window.botpress.init(window.botpress._pendingConfig);
+            delete window.botpress._pendingConfig;
+          }
+        } catch (e) {
+          console.warn('Botpress initialization handled:', e);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
